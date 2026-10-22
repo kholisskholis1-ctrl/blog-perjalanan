@@ -1,0 +1,629 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b14">
+<meta name="description" content="Perjalanan Nur Khalis atau Kholis dari nol, belajar, berjuang, membangun karya, hingga menghasilkan.">
+<title>Perjalanan Kholis — From Zero to Success</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #080b14;
+  --panel: #101624;
+  --text: #f5f7ff;
+  --muted: #9aa5bb;
+  --blue: #68a5ff;
+  --purple: #a78bfa;
+  --line: rgba(255,255,255,.09);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 15% 10%, rgba(73,119,255,.13), transparent 35%),
+    radial-gradient(ellipse at 85% 35%, rgba(154,94,255,.10), transparent 35%);
+}
+a { color: inherit; text-decoration: none; }
+.container { width: min(1100px, 90%); margin: auto; }
+
+/* NAVBAR */
+nav {
+  position: fixed;
+  z-index: 20;
+  top: 0; left: 0; right: 0;
+  padding: 16px 0;
+  background: rgba(8,11,20,.78);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  width: min(1100px, 90%);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+.brand {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.brand span { color: var(--blue); }
+.nav-links { display: flex; gap: 24px; font-size: 12px; color: var(--muted); }
+.nav-links a:hover { color: white; }
+.menu-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: white;
+  padding: 6px 11px;
+  font-size: 20px;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  padding: 140px 0 80px;
+  display: flex;
+  align-items: center;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: center;
+  gap: 60px;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #a9c8ff;
+  border: 1px solid rgba(104,165,255,.25);
+  background: rgba(104,165,255,.07);
+  padding: 7px 13px;
+  border-radius: 30px;
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+.dot {
+  width: 7px; height: 7px;
+  background: #76f2b3;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #76f2b3;
+}
+h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(45px, 6.6vw, 78px);
+  line-height: 1.06;
+  letter-spacing: -4px;
+  margin: 24px 0;
+}
+.gradient-text {
+  background: linear-gradient(100deg, #79b6ff, #b9a2ff 60%, #f1c6ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero-desc { color: var(--muted); max-width: 510px; font-size: 15px; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: .25s;
+}
+.btn-primary {
+  color: #07101f;
+  background: linear-gradient(110deg, #85bdff, #b9a4ff);
+}
+.btn-outline { border: 1px solid var(--line); color: #dce5fa; }
+.btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
+
+.profile-wrap { position: relative; width: min(340px, 100%); margin: auto; }
+.profile-glow {
+  position: absolute;
+  inset: 12%;
+  background: linear-gradient(135deg, #528dff, #a66cff);
+  filter: blur(65px);
+  opacity: .34;
+}
+.profile-card {
+  position: relative;
+  border: 1px solid rgba(255,255,255,.16);
+  padding: 12px;
+  border-radius: 26px;
+  background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.015));
+  transform: rotate(2deg);
+  animation: float 5s ease-in-out infinite;
+}
+.profile-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 17px;
+  background: #171c2a;
+}
+.profile-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 15px 5px 5px;
+}
+.profile-caption strong { display: block; font-size: 14px; }
+.profile-caption small { color: var(--muted); font-size: 11px; }
+.profile-number { color: var(--blue); font-size: 12px; }
+
+/* SECTION */
+section { padding: 95px 0; }
+.section-head { margin-bottom: 38px; max-width: 650px; }
+.kicker {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--blue);
+  font-weight: 700;
+}
+h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+  margin: 12px 0;
+}
+.section-head p { color: var(--muted); font-size: 14px; }
+
+/* QUOTE */
+.quote-box {
+  padding: 35px;
+  border: 1px solid rgba(122,163,255,.2);
+  border-radius: 20px;
+  background: linear-gradient(120deg, rgba(82,128,255,.10), rgba(167,139,250,.05));
+}
+.quote-mark { font-size: 42px; color: var(--blue); line-height: 1; }
+.quote-box blockquote {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(22px, 3.5vw, 34px);
+  line-height: 1.45;
+  font-weight: 600;
+  margin: 12px 0;
+}
+.quote-box p { color: var(--muted); font-size: 12px; }
+
+/* TIMELINE */
+.timeline { position: relative; max-width: 800px; }
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 12px; bottom: 15px; left: 11px;
+  width: 1px;
+  background: linear-gradient(var(--blue), #a78bfa, transparent);
+}
+.timeline-item {
+  position: relative;
+  padding: 0 0 38px 43px;
+}
+.timeline-dot {
+  position: absolute;
+  top: 7px; left: 4px;
+  width: 15px; height: 15px;
+  border-radius: 50%;
+  border: 3px solid var(--blue);
+  background: var(--bg);
+  box-shadow: 0 0 15px rgba(104,165,255,.3);
+}
+.timeline-item h3 { font-size: 19px; margin-bottom: 8px; }
+.timeline-item p { color: var(--muted); font-size: 14px; }
+.phase {
+  color: #8eb9ff;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+}
+.card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  background: rgba(255,255,255,.025);
+  transition: .3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(104,165,255,.4);
+  background: rgba(104,165,255,.05);
+}
+.card-icon { font-size: 25px; margin-bottom: 16px; }
+.card h3 { font-size: 16px; margin-bottom: 9px; }
+.card p { color: var(--muted); font-size: 12px; }
+
+/* MOTIVATION */
+.motivation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.motivation {
+  padding: 23px;
+  border-radius: 15px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+.motivation p { font-size: 15px; font-weight: 600; }
+.motivation span { display: block; color: var(--blue); font-size: 11px; margin-top: 12px; }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 35px 0;
+  text-align: center;
+}
+footer strong { font-family: 'Space Grotesk', sans-serif; font-size: 19px; }
+footer p { color: var(--muted); font-size: 11px; margin-top: 7px; }
+.back-top {
+  position: fixed;
+  bottom: 20px; right: 20px;
+  z-index: 10;
+  width: 42px; height: 42px;
+  display: grid; place-items: center;
+  background: #17243b;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: white;
+}
+
+/* ANIMATION */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s, transform .7s; }
+.reveal.show { opacity: 1; transform: translateY(0); }
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(2deg); }
+  50% { transform: translateY(-12px) rotate(0deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media(max-width: 760px) {
+  .hero { padding-top: 120px; min-height: auto; }
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero-copy { text-align: center; }
+  .hero-desc { margin: auto; }
+  .hero-actions { justify-content: center; }
+  .profile-wrap { width: min(290px, 85%); }
+  h1 { letter-spacing: -2.5px; }
+  section { padding: 70px 0; }
+  .cards { grid-template-columns: 1fr; }
+  .motivation-grid { grid-template-columns: 1fr; }
+  .quote-box { padding: 25px; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 62px; left: 5%; right: 5%;
+    flex-direction: column;
+    gap: 0;
+    padding: 10px;
+    background: #101624;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 10px; }
+  .menu-btn { display: block; }
+}
+</style>
+</head>
+
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#home">KHOLIS<span>.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Beranda</a>
+      <a href="#cerita">Perjalanan</a>
+      <a href="#pelajaran">Pelajaran</a>
+      <a href="#motivasi">Motivasi</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="dot"></span> MY JOURNEY · MY STORY</div>
+        <h1>Dari Nol,<br>Menjadi <span class="gradient-text">Sesuatu.</span></h1>
+        <p class="hero-desc">
+          Aku Nur Khalis, biasa dipanggil Kholis. Ini bukan cerita tentang
+          seseorang yang langsung sukses, tetapi tentang seseorang yang
+          berani memulai, terus belajar, melewati kegagalan, dan membangun
+          jalannya sendiri sampai bisa menghasilkan.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#cerita">Jelajahi Perjalananku ↗</a>
+          <a class="btn btn-outline" href="#motivasi">Baca Motivasi</a>
+        </div>
+      </div>
+
+      <div class="profile-wrap reveal">
+        <div class="profile-glow"></div>
+        <div class="profile-card">
+          <img
+            src="https://cdn.phototourl.com/member/2026-10-22-3fed68bc-9bd8-4e1a-b918-cd54668fc723.jpg"
+            alt="Foto profil Nur Khalis atau Kholis"
+            onerror="this.style.background='#171c2a'; this.removeAttribute('src');"
+          >
+          <div class="profile-caption">
+            <div>
+              <strong>Nur Khalis</strong>
+              <small>Dreamer. Learner. Builder.</small>
+            </div>
+            <div class="profile-number">EST. BY COURAGE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container reveal">
+      <div class="quote-box">
+        <div class="quote-mark">“</div>
+        <blockquote>
+          Aku mungkin memulai tanpa apa-apa,
+          tetapi aku tidak akan berhenti hanya karena belum punya segalanya.
+        </blockquote>
+        <p>— Prinsip hidup Kholis</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cerita">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">01 / The Journey</span>
+        <h2>Semua Berawal dari Nol.</h2>
+        <p>
+          Setiap perjalanan punya titik awal. Tidak selalu mudah, tidak selalu
+          mulus, tetapi setiap langkah punya pelajaran yang berharga.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <span class="phase">Chapter 01 — The Beginning</span>
+          <h3>Berani Memulai</h3>
+          <p>
+            Aku memulai perjalanan ini dengan rasa penasaran, banyak
+            pertanyaan, dan keinginan untuk punya sesuatu yang bisa
+            kubanggakan. Aku belum mengetahui semuanya, tetapi aku sadar
+            bahwa menunggu sampai sempurna hanya akan membuatku diam di tempat.
+          </p>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <span class="phase">Chapter 02 — The Process</span>
+          <h3>Belajar, Mencoba, dan Gagal</h3>
+          <p>
+            Ada hal yang tidak langsung berhasil. Ada waktu ketika usaha
+            terasa sia-sia, ada kesalahan yang harus diperbaiki, dan ada
+            kemampuan baru yang harus dipelajari. Dari situ aku belajar:
+            kegagalan bukan akhir, melainkan bagian dari proses bertumbuh.
+          </p>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <span class="phase">Chapter 03 — The Growth</span>
+          <h3>Membangun Nilai dari Kemampuan</h3>
+          <p>
+            Sedikit demi sedikit, pengetahuan dan pengalaman bisa menjadi
+            sesuatu yang bernilai. Aku belajar bahwa menghasilkan uang bukan
+            hanya tentang mencari keuntungan, tetapi juga tentang kemampuan,
+            konsistensi, kepercayaan, dan memberikan sesuatu yang bermanfaat.
+          </p>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <span class="phase">Chapter 04 — The Progress</span>
+          <h3>Mulai Menghasilkan</h3>
+          <p>
+            Ketika usaha mulai menghasilkan, aku melihat bahwa langkah kecil
+            yang dikerjakan dengan serius dapat membawa perubahan. Penghasilan
+            bukan alasan untuk berhenti belajar, melainkan motivasi untuk
+            mengelola hasil dengan bijak dan meningkatkan kualitas diri.
+          </p>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <span class="phase">Chapter 05 — The Future</span>
+          <h3>Belum Selesai, Masih Bertumbuh</h3>
+          <p>
+            Sampai hari ini, perjalanan ini masih berlanjut. Aku tidak ingin
+            hanya bangga pada apa yang sudah dicapai. Aku ingin terus
+            berkembang, memperluas pengalaman, membangun masa depan, dan
+            membuktikan bahwa proses yang sungguh-sungguh punya arti.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="pelajaran">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">02 / What I Learned</span>
+        <h2>Lebih dari Sekadar Uang.</h2>
+        <p>
+          Ada hal-hal penting yang ingin selalu kuingat sepanjang perjalanan ini.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card-icon">⚡</div>
+          <h3>Mulai dari yang Ada</h3>
+          <p>
+            Jangan menunggu alat terbaik, modal terbesar, atau waktu yang
+            sempurna. Maksimalkan apa yang ada, lalu berkembang dari sana.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon">⌛</div>
+          <h3>Konsistensi Menang</h3>
+          <p>
+            Kemajuan tidak selalu terlihat hari ini. Tetap bergerak meskipun
+            langkahmu kecil, sebab hasil besar membutuhkan proses.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon">◆</div>
+          <h3>Jaga Kepercayaan</h3>
+          <p>
+            Reputasi dibangun dari kejujuran, tanggung jawab, dan kualitas.
+            Keuntungan sesaat tidak lebih berharga daripada kepercayaan.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="motivasi">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">03 / Mindset</span>
+        <h2>Untuk Kamu yang Sedang Berjuang.</h2>
+        <p>
+          Jika sekarang kamu masih merintis, semoga beberapa kalimat ini
+          bisa mengingatkanmu untuk terus melangkah.
+        </p>
+      </div>
+
+      <div class="motivation-grid">
+        <article class="motivation reveal">
+          <p>“Jangan malu memulai dari bawah. Yang perlu kamu takutkan adalah berhenti berkembang karena terlalu sibuk membandingkan diri.”</p>
+          <span>— KEEP MOVING</span>
+        </article>
+        <article class="motivation reveal">
+          <p>“Tidak semua orang akan memahami prosesmu. Tidak apa-apa. Kamu tidak membutuhkan tepuk tangan semua orang untuk terus maju.”</p>
+          <span>— TRUST YOUR PROCESS</span>
+        </article>
+        <article class="motivation reveal">
+          <p>“Mimpi tanpa tindakan hanyalah angan-angan. Tindakan kecil yang dilakukan setiap hari adalah awal dari perubahan besar.”</p>
+          <span>— TAKE ACTION</span>
+        </article>
+        <article class="motivation reveal">
+          <p>“Jadikan masa sulit sebagai guru, bukan alasan untuk menyerah. Kamu masih punya kesempatan untuk menulis cerita yang berbeda.”</p>
+          <span>— NEVER GIVE UP</span>
+        </article>
+        <article class="motivation reveal">
+          <p>“Kejar penghasilan, tetapi jangan kehilangan prinsip. Kejar kesuksesan, tetapi jangan berhenti menjadi manusia yang baik.”</p>
+          <span>— STAY HUMBLE</span>
+        </article>
+        <article class="motivation reveal">
+          <p>“Versi terbaik dirimu tidak dibangun dalam satu malam. Ia dibentuk oleh keputusan kecil yang kamu pilih setiap hari.”</p>
+          <span>— BECOME BETTER</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container reveal">
+      <div class="quote-box">
+        <span class="kicker">A Note to Myself</span>
+        <blockquote>
+          “Suatu hari nanti, aku ingin melihat ke belakang dan tersenyum,
+          karena aku tidak menyerah ketika semuanya masih terasa mustahil.”
+        </blockquote>
+        <p>Nur Khalis · Kholis</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <strong>KHOLIS<span class="gradient-text">.</span></strong>
+    <p>Built from dreams. Powered by effort. Still becoming.</p>
+    <p>© <span id="year"></span> Nur Khalis. Semua perjalanan punya cerita.</p>
+  </div>
+</footer>
+
+<a class="back-top" href="#home" aria-label="Kembali ke atas">↑</a>
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+
+menuBtn.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', String(isOpen));
+  menuBtn.textContent = isOpen ? '×' : '☰';
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.textContent = '☰';
+  });
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(element => {
+  observer.observe(element);
+});
+</script>
+</body>
+</html>
